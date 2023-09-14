@@ -32,7 +32,7 @@ The base URL for this API is `http://localhost:3000/api`.
 
 ### Create a Person
 
-- **Endpoint**: `POST /api`
+- **Endpoint**: `POST /`
 - **Description**: Create a new person.
 - **Request Body**: JSON object with the following fields:
   - `name` (String, required): The name of the person.
@@ -40,7 +40,7 @@ The base URL for this API is `http://localhost:3000/api`.
 
 ### Retrieve a Person
 
-- **Endpoint**: `GET /api/:user_id`
+- **Endpoint**: `GET /:user_id`
 - **Description**: Retrieve details of a person by ID.
 - **Parameters**:
   - `user_id` (String, required): The unique ID of the person.
@@ -48,7 +48,7 @@ The base URL for this API is `http://localhost:3000/api`.
 
 ### Retrieve all Persons
 
-- **Endpoint**: `GET /api`
+- **Endpoint**: `GET /`
 - **Description**: Retrieve details of all persons created.
 - **Parameters**:
   - Requires just the endpoint
@@ -56,7 +56,7 @@ The base URL for this API is `http://localhost:3000/api`.
 
 ### Update a Person
 
-- **Endpoint**: `PUT /api/:user_id`
+- **Endpoint**: `PUT /:user_id`
 - **Description**: Modify details of an existing person by ID.
 - **Parameters**:
   - `user_id` (String, required): The unique ID of the person.
@@ -66,7 +66,7 @@ The base URL for this API is `http://localhost:3000/api`.
 
 ### Delete a Person
 
-- **Endpoint**: `DELETE /api/:user_id`
+- **Endpoint**: `DELETE /:user_id`
 - **Description**: Remove a person by ID.
 - **Parameters**:
   - `user_id` (String, required): The unique ID of the person.
