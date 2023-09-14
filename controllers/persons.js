@@ -34,7 +34,8 @@ const updatePerson = asyncWrapper(async (req, res) => {
     const updatedPerson = await Person.findByIdAndUpdate(
         req.params.user_id,
         req.body,
-        {new: true}
+        { includeResultMetadata: true }
+
     );
     if(!updatePerson) {
         return res.status(404).json({error: 'Person not found'})
