@@ -10,21 +10,10 @@ app.use(express.json());
 // routes
 app.use('/api', person);
 
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT  ;
+connectDB();
 
-const start = async () => {
-  try {
-    await connectDB(process.env.MONGO_URI);
-    app.listen(PORT, () =>
-      console.log(`Server is listening on port:${PORT}...`)
-    );
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
-
+app.listen(PORT, console.log(`App listening on port: ${PORT}`));
 
 // const PORT = process.env.PORT || 3000;
 // app.listen(PORT, () => console.log(`Server created on port: ${PORT}`));
