@@ -25,7 +25,7 @@ This REST API allows you to perform CRUD (Create, Read, Update, Delete) operatio
 
 ### Base URL
 
-The base URL for this API is `http://localhost:3000/api`. 
+The base URL for this API is `https://restapi-b202.onrender.com/api`. 
 
 
 ## 2. Endpoints
@@ -82,7 +82,7 @@ You can interact with this API using Postman, by following these steps:
 
 2. Set the HTTP method (e.g., POST, GET, PUT, DELETE) for the desired operation.
 
-3. Enter the API endpoint URL (e.g., `http://localhost:3000/api`) along with the endpoint path for the specific operation (e.g., `/1` for user ID 1).
+3. Enter the API endpoint URL (e.g., `https://restapi-b202.onrender.com/api`) along with the endpoint path for the specific operation (e.g., `/1` for user ID 1).
 
 4. Set the request headers (if needed) and the request body in JSON format as described in the [Request and Response Formats](#request-and-response-formats) section.
 
@@ -106,3 +106,13 @@ You can interact with this API using Postman, by following these steps:
     {
       "name": "Updated Name"
     }
+
+### Response Format
+Success Response (for GET, POST, PUT, DELETE):
+```json
+{
+  "_id": "user_id",
+  "name": "John Doe"
+}
+
+
