@@ -9,6 +9,6 @@ const {
 } = require('../controllers/persons');
 
 router.route('/').post(createPerson).get(readAllPerson);
-router.route('/user_id').get(readOnePerson).patch(updatePerson).delete(deletePerson)
+router.route('/:user_id').get(readOnePerson).patch(updatePerson).delete(deletePerson)
 
 module.exports= router;
