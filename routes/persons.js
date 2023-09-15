@@ -8,7 +8,8 @@ const {
     deletePerson
 } = require('../controllers/persons');
 
-router.route('/api').post(createPerson).get(readAllPerson);
-router.route('/api/:user_id').get(readOnePerson).patch(updatePerson).delete(deletePerson)
+router.route('/api').post(createPerson);
+router.route('/api/users').get(readAllPerson);
+router.route('/api/:user_id').get(readOnePerson).put(updatePerson).delete(deletePerson)
 
 module.exports= router;

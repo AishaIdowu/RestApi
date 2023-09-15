@@ -18,7 +18,7 @@ const createPerson = asyncWrapper(async (req, res) => {
 });
 
 const readOnePerson = asyncWrapper(async (req, res) => {
-    const person = await Person.findById(req.params.user_id);
+    const person = await Person.findById(req.body.user_id);
     if(!person) {
         return res.status(404).json({error: 'Person not found'})
     }
@@ -39,7 +39,7 @@ const readAllPerson = asyncWrapper(async (req, res) => {
 
 const updatePerson = asyncWrapper(async (req, res) => {
     const updatedPerson = await Person.findByIdAndUpdate(
-        req.params.user_id,
+        req.body.user_id,
         req.body,
         { includeResultMetadata: true }
 
@@ -51,7 +51,7 @@ const updatePerson = asyncWrapper(async (req, res) => {
 });
 
 const deletePerson = asyncWrapper(async (req,res) => {
-    const deletedPerson = await Person.findByIdAndRemove(req.params.user_id);
+    const deletedPerson = await Person.findByIdAndRemove(req.body.user_id);
     if(!deletedPerson) {
         return res.status(404).json({error: 'Person not found'})
     }
