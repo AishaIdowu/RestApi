@@ -27,9 +27,7 @@ const readOnePerson = asyncWrapper(async (req, res) => {
 
 const readAllPerson = asyncWrapper(async (req, res) => {
     try {
-        const persons = await Person.db("Persons")
-                                    .collection("people")
-                                    .find().maxTimeMS(20000);
+        const persons = await Person.find().maxTimeMS(20000);
         res.status(200).json(persons);
         
     } catch (error) {
