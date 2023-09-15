@@ -17,6 +17,36 @@ const createPerson = asyncWrapper(async (req, res) => {
     res.json(savedPerson);
 });
 
+const InsertPerson = asyncWrapper(async(req,res) => {
+    const persons = await Person.insertMany([
+        {
+            "name": "Aisha Idowu",
+            "user_id": "1"
+        },
+        {
+            "name": "Aisha",
+            "user_id": "2"
+        },
+        {
+            "name": "John Doe",
+            "user_id": "3"
+        },
+        {
+            "name": "Temitope",
+            "user_id": "4"
+        },
+        {
+            "name": "Abimbola Idowu",
+            "user_id": "5"
+        },
+        {
+            "name": "Ruqayyah",
+            "user_id": "6"
+        }
+    ]);
+    res.json(persons)
+})
+
 const readOnePerson = asyncWrapper(async (req, res) => {
     const person = await Person.findById(req.body.user_id);
     if(!person) {
@@ -61,6 +91,7 @@ const deletePerson = asyncWrapper(async (req,res) => {
 
 module.exports = {
     createPerson,
+    InsertPerson,
     readOnePerson,
     readAllPerson,
     updatePerson,
