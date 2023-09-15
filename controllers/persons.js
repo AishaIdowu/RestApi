@@ -18,33 +18,40 @@ const createPerson = asyncWrapper(async (req, res) => {
 });
 
 const InsertPerson = asyncWrapper(async(req,res) => {
-    const persons = await Person.insertMany([
-        {
-            "name": "Aisha Idowu",
-            "user_id": "1"
-        },
-        {
-            "name": "Aisha",
-            "user_id": "2"
-        },
-        {
-            "name": "John Doe",
-            "user_id": "3"
-        },
-        {
-            "name": "Temitope",
-            "user_id": "4"
-        },
-        {
-            "name": "Abimbola Idowu",
-            "user_id": "5"
-        },
-        {
-            "name": "Ruqayyah",
-            "user_id": "6"
-        }
-    ]);
-    res.json(persons)
+    try {
+        const persons = await Person.insertMany([
+            {
+                "name": "Aisha Idowu",
+                "user_id": "1"
+            },
+            {
+                "name": "Aisha",
+                "user_id": "2"
+            },
+            {
+                "name": "John Doe",
+                "user_id": "3"
+            },
+            {
+                "name": "Temitope",
+                "user_id": "4"
+            },
+            {
+                "name": "Abimbola Idowu",
+                "user_id": "5"
+            },
+            {
+                "name": "Ruqayyah",
+                "user_id": "6"
+            }
+        ]);
+        res.json(persons)
+        
+    } catch (error) {
+        return res.status(404).json({error: 'Person not found'}) 
+        
+    }
+    
 })
 
 const readOnePerson = asyncWrapper(async (req, res) => {
@@ -55,17 +62,17 @@ const readOnePerson = asyncWrapper(async (req, res) => {
     res.json(person)
 });
 
-const readAllPerson = asyncWrapper(async (req, res) => {
-    try {
-        const persons = await Person.find().maxTimeMS(20000);
-        res.status(200).json(persons);
+// const readAllPerson = asyncWrapper(async (req, res) => {
+//     try {
+//         const persons = await Person.find().maxTimeMS(20000);
+//         res.status(200).json(persons);
         
-    } catch (error) {
-        return res.status(404).json({error: 'Person not found'})   
+//     } catch (error) {
+//         return res.status(404).json({error: 'Person not found'})   
         
-    }
+//     }
     
-});
+// });
 
 const updatePerson = asyncWrapper(async (req, res) => {
     const updatedPerson = await Person.findByIdAndUpdate(
@@ -93,7 +100,7 @@ module.exports = {
     createPerson,
     InsertPerson,
     readOnePerson,
-    readAllPerson,
+    // readAllPerson,
     updatePerson,
     deletePerson
 };
