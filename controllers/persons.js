@@ -25,13 +25,13 @@ const readOnePerson = asyncWrapper(async (req, res) => {
     res.json(person)
 });
 
-// const readAllPerson = asyncWrapper(async (req, res) => {
-//     const persons = await Person.find(req.params.user_id);
-//     if(!persons) {
-//         return res.status(404).json({error: 'Person not found'})
-//     }  
-//     res.status(200).json({persons});
-// });
+const readAllPerson = asyncWrapper(async (req, res) => {
+    const persons = await Person.find({});
+    if(!persons) {
+        return res.status(404).json({error: 'Person not found'})
+    }  
+    res.status(200).json({persons});
+});
 
 const updatePerson = asyncWrapper(async (req, res) => {
     const updatedPerson = await Person.findByIdAndUpdate(
@@ -58,7 +58,7 @@ const deletePerson = asyncWrapper(async (req,res) => {
 module.exports = {
     createPerson,
     readOnePerson,
-    // readAllPerson,
+    readAllPerson,
     updatePerson,
     deletePerson
 };
