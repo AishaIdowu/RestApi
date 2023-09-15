@@ -1,8 +1,6 @@
-# RestApi
 # Person API Documentation
 
 This REST API allows you to perform CRUD (Create, Read, Update, Delete) operations on a "person" resource.
-
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -19,13 +17,15 @@ This REST API allows you to perform CRUD (Create, Read, Update, Delete) operatio
 
 4. [Request and Response Formats](#request-and-response-formats)
 
-5. [Error Handling](#error-handling)
+5. [UML Implementation](#UML)   
+    - [Person UML](#UML-Diagram)
+
 
 ## 1. Getting Started
 
 ### Base URL
 
-The base URL for this API is `https://restapi-b202.onrender.com/api`. 
+The base URL for this API is `https://exuberant-goat-top-coat.cyclic.cloud/api`. 
 
 
 ## 2. Endpoints
@@ -82,7 +82,7 @@ You can interact with this API using Postman, by following these steps:
 
 2. Set the HTTP method (e.g., POST, GET, PUT, DELETE) for the desired operation.
 
-3. Enter the API endpoint URL (e.g., `https://restapi-b202.onrender.com/api`) along with the endpoint path for the specific operation (e.g., `/1` for user ID 1).
+3. Enter the API endpoint URL (e.g., `https://exuberant-goat-top-coat.cyclic.cloud/api`) along with the endpoint path for the specific operation (e.g., `/1` for user ID 1).
 
 4. Set the request headers (if needed) and the request body in JSON format as described in the [Request and Response Formats](#request-and-response-formats) section.
 
@@ -90,29 +90,54 @@ You can interact with this API using Postman, by following these steps:
 
 6. Review the response in the Postman interface to see the result.
 
-## 4. Request and Response Formats
 
+## 4. Request and Response Formats
 ### Request Format
 
-- **POST /api**
-  ```json
-  {
-    "name": "John Doe"
-  }
-
-- **PUT /api/:user_id**
-   ```json
-
-    {
-      "name": "Updated Name"
-    }
-
-### Response Format
-Success Response (for GET, POST, PUT, DELETE):
+**Create a New Person**
+HTTP Method - POST
+Endpoint
+`/`
+**Request Body**
 ```json
 {
-  "_id": "user_id",
-  "name": "John Doe"
+  "name": "New Name"
 }
+```
+
+**Get all Persons**
+HTTP Method - GET
+Endpoint
+`/`
+**Request Body**
+NIL
+
+**Get a Person By Id**
+HTTP Method - GET
+Endpoint
+`/user_id`
+**Request Body**
+NIL
 
 
+**Update a Person By Id**
+HTTP Method - PUT
+Endpoint
+`/user_id`
+**Request Body**
+```json
+{
+  "name": "Updated Name"
+}
+```
+
+**Delete a Person By Id**
+HTTP Method - DELETE
+Endpoint
+`/user_id`
+**Request Body**
+NIL
+
+## 5. UML Implementation
+
+The UML Diagram Implementation for this API is here `https://drive.google.com/file/d/1bQ7gzKhR73Isb0-ACOYKREx7bmuPepO3/view?usp=sharing`.
