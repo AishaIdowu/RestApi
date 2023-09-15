@@ -58,7 +58,7 @@ const deletePerson = asyncWrapper(async (req,res) => {
 module.exports = {
     createPerson,
     readOnePerson,
-    readAllPerson,
+    // readAllPerson,
     updatePerson,
     deletePerson
 };
