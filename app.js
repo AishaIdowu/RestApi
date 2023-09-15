@@ -9,10 +9,12 @@ app.use(express.json());
 
 
 // routes
-app.use('/', require('./routes/persons'));
+app.use('/api', require('./routes/persons'));
 
 const PORT = process.env.PORT || 3000  ;
-connectDB();
+connectDB().then(() => {
+    app.listen(PORT, console.log(`App listening on port: ${PORT}`));
+})
 
-app.listen(PORT, console.log(`App listening on port: ${PORT}`));
+
 
