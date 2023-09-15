@@ -28,7 +28,7 @@ const readOnePerson = asyncWrapper(async (req, res) => {
 const readAllPerson = asyncWrapper(async (req, res) => {
     
     try {
-        const persons = await Person.find({}).maxTimeMS(20000);
+        const persons = await Person.find().maxTimeMS(20000);
         res.json({persons});
         
     } catch (error) {
