@@ -8,6 +8,7 @@ const connectDB = async () => {
           keepAlive: true,
           useNewUrlParser: true,
           useUnifiedTopology: true,
+          poolSize: 10
         });
         console.log(`Database Connected: ${conn.connection.host}`);
     
