@@ -26,7 +26,7 @@ const readOnePerson = asyncWrapper(async (req, res) => {
 });
 
 const readAllPerson = asyncWrapper(async (req, res) => {
-    const persons = await Person.find({});
+    const persons = await Person.find({}).maxTimeMS(20000);
     if(!persons) {
         return res.status(404).json({error: 'Person not found'})
     }  
